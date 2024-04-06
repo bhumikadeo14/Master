@@ -1,11 +1,11 @@
 package tutorials;
 
+
+
 public class LinkedlistPalindrome {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		ListNode head = new ListNode(1);
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(2);
@@ -13,32 +13,46 @@ public class LinkedlistPalindrome {
 
         LinkedlistPalindrome solution = new LinkedlistPalindrome();
         System.out.println(solution.isPalindrome(head));
+    }
 
-	}
-	
-	public boolean isPalindrome(ListNode head) {
-        ListNode slow = head, fast = head, prev, temp;
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // Move slow and fast pointers to find the middle of the list
         while (fast != null && fast.next != null) {
-            slow = slow.next;
             fast = fast.next.next;
-        }
-        prev = slow;
-        slow = slow.next;
-        prev.next = null;
-        while (slow != null) {
-            temp = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = temp;
-        }
-        fast = head;
-        slow = prev;
-        while (slow != null) {
-            if (fast.val != slow.val) return false;
-            fast = fast.next;
             slow = slow.next;
         }
+
+        // Reverse the second half of the list
+        slow = reverse(slow);
+        fast = head;
+
+        // Compare the first half with the reversed second half
+        while (slow != null) {
+            if (slow.val != fast.val) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+
         return true;
     }
 
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+        ListNode next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        return prev;
+    }
 }

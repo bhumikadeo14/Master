@@ -5,7 +5,7 @@ public class CountDuplicateCharsInString {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String input="LittLeLadyLove";
+		String input="LittLe Lady Love";
 		
 		//Converting string into char array
 		

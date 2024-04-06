@@ -14,7 +14,7 @@ public class MergeTwoSortedLists {
 		while(l1!=null && l2!=null) {
 			if(l1.val<l2.val) {
 				
-			//updating address of the current node to the lust node with small value
+			//updating address of the current node to the list node with small value
 				currentNode=l1.next;
 				l1=l1.next;
 			}

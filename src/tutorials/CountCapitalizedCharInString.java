@@ -6,12 +6,12 @@ public class CountCapitalizedCharInString {
 		// TODO Auto-generated method stub
 		
 		String inputstr="LiTtLeLAdYLoVe";
-		int i,j,count=0;
+		int i,count=0;
 		
 		char[]inputstrchararray=inputstr.toCharArray();
 		
 		for ( i=0;i<inputstr.length();i++) {
-			if (inputstrchararray[i]>='A'&&inputstrchararray[i]<='Z') {
+			if (inputstrchararray[i]>='A'&& inputstrchararray[i]<='Z') {
 				count++;
 				
 			}
